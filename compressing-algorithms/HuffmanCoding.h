@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "BitOutputStream.h"
 
 using std::priority_queue;
 using std::pair;
@@ -20,7 +21,7 @@ struct HuffmanTreeNode {
 	size_t frequency;
 	shared_ptr<HuffmanTreeNode> leftChild;
 	shared_ptr<HuffmanTreeNode> rightChild;
-	void insert(unique_ptr<HuffmanTreeNode>& node) {
+	void insert(shared_ptr<HuffmanTreeNode>& node) {
 		if (node->frequency >= frequency && rightChild) {
 			rightChild->insert(node);
 		} else if(node->frequency >= frequency && !rightChild) {
@@ -47,7 +48,7 @@ struct NodeComparator {
 
 class HuffmanCoding {
 public:
-	 
+	HuffmanCoding(ostream& out) : outStream(out){}
 	void encodeString(const string&);
 	void decodeString();
 	string getEncodedString() const { return encodedString; }
@@ -64,10 +65,11 @@ private:
 	string encodedString;
 	string decodedString;
 	string initialString;
-
- 	void fillPriorityQueue(std::map<char, size_t>&);
-	
+	BitOutputStream outStream;
+ 	void fillPriorityQueue(std::map<char, size_t>&);	
 	void constructHuffmanCodingTree();
 	void createSymbolsAndCodesTable(shared_ptr<HuffmanTreeNode>&, int);
 	void buildEncodedString();
+	void buildEncodedText();
+	void writeCodeToStream(const string&);
 };
