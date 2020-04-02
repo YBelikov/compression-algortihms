@@ -17,6 +17,7 @@ int BitInputStream::read() {
 	if (bitsRemains == 0) {
 		currentByte = inputStream.get();
 		if (currentByte == EOF) return -1;
+		
 		bitsRemains = 8;
 	}
 	--bitsRemains;

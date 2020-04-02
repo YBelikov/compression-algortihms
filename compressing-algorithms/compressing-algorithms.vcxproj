@@ -140,6 +140,7 @@
     <ClCompile Include="FrequencyTable.cpp" />
     <ClCompile Include="HuffmanCodeConverter.cpp" />
     <ClCompile Include="HuffmanCoding.cpp" />
+    <ClCompile Include="HuffmanDecoder.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

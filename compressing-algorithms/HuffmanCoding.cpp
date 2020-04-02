@@ -12,8 +12,8 @@ void HuffmanCoding::writeEncodedText(std::istream& in, HuffmanCodeConverter& con
 			writeCodeToStream(converter.getCodeOfCharacter(character));
 		}
 	}
+	writeCodeToStream(converter.getCodeOfCharacter(static_cast<char>(256)));
 	outStream.finish();
-
 }
 
 void HuffmanCoding::writeCodeToStream(const string& code) {

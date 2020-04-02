@@ -8,3 +8,7 @@ void FrequencyTable::countFrequencesOfSymbolsInStream(std::istream& in) {
 		}
 	}
 }
+
+void FrequencyTable::insertCharacterWithFrequency(char character, int frequency) {
+	symbolFrequencies[character] = frequency;
+}

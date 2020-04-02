@@ -16,6 +16,7 @@ public:
 	FrequencyTable() = default;
 	FrequencyTable(const FrequencyTable&) = default;
 	void countFrequencesOfSymbolsInStream(std::istream& in);
+	void insertCharacterWithFrequency(char, int);
 private:
 	std::map<char, int> symbolFrequencies;
 };

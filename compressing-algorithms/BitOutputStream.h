@@ -14,7 +14,7 @@ public:
 	BitOutputStream(ostream& stream) : outputStream(stream), currentByte{ 0 }, bitCounter{0} {}
 	void write(int);
 	void finish();
-	void close();
+	void writeEndOfFile();
 };
 
 

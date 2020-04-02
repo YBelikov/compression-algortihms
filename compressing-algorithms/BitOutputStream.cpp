@@ -5,7 +5,7 @@ void BitOutputStream::write(int bit) {
 	currentByte = (currentByte << 1) | bit;
 	++bitCounter;
 	if (bitCounter == numberOfBitsInByte) {
-		outputStream.put(bit);
+		outputStream.put(static_cast<char>(currentByte));
 		currentByte = 0;
 		bitCounter = 0;
 	}
@@ -15,4 +15,8 @@ void BitOutputStream::finish() {
 	while (bitCounter != 0) {
 		write(0);
 	}
+}
+
+void BitOutputStream::writeEndOfFile() {
+	outputStream.put(static_cast<char>(256));
 }
