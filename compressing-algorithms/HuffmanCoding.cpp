@@ -14,7 +14,9 @@ void HuffmanCoding::encodeString(const string& text) {
 	fillPriorityQueue(frequencesOfCharactersAppearanceInText);
 	constructHuffmanCodingTree();
 	createSymbolsAndCodesTable(root, 0);
+	buildEncodedString();
 	buildEncodedText();
+	
 }
 
 void HuffmanCoding::fillPriorityQueue(std::map<char, size_t>& frequences) {
@@ -78,6 +80,30 @@ void HuffmanCoding::writeCodeToStream(const string& code) {
 	for (auto& c : code) {
 		if (c == '0') outStream.write(0);
 		else if (c == '1') outStream.write(1);
+	}
+}
+
+void HuffmanCoding::writeDecodedText() {
+	shared_ptr<HuffmanTreeNode> node = root;
+	try {
+		while (true) {
+			int bit = inputStream.readWithoutEOF();
+			while (node->rightChild && node->leftChild) {
+				if (bit == 0) {
+					node = node->leftChild;
+					bit = inputStream.readWithoutEOF();
+				}
+				else if (bit == 1) {
+					node = node->rightChild;
+					bit = inputStream.readWithoutEOF();
+				}
+			}
+			std::cout << node->symbol;
+			node = root;
+		}
+	}
+	catch(...){
+		return;
 	}
 }
 

@@ -123,11 +123,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BitInputStream.h" />
     <ClInclude Include="BitOutputStream.h" />
+    <ClInclude Include="Decoder.h" />
     <ClInclude Include="Encoder.h" />
     <ClInclude Include="HuffmanCoding.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BitInputStream.cpp" />
     <ClCompile Include="BitOutputStream.cpp" />
     <ClCompile Include="HuffmanCoding.cpp" />
     <ClCompile Include="main.cpp" />
