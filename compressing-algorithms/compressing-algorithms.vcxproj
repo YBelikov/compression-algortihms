@@ -129,6 +129,7 @@
     <ClInclude Include="Decoder.h" />
     <ClInclude Include="Encoder.h" />
     <ClInclude Include="FrequencyTable.h" />
+    <ClInclude Include="HuffmanCodeConverter.h" />
     <ClInclude Include="HuffmanCoding.h" />
     <ClInclude Include="HuffmanDecoder.h" />
   </ItemGroup>
@@ -137,6 +138,7 @@
     <ClCompile Include="BitOutputStream.cpp" />
     <ClCompile Include="CodeTree.cpp" />
     <ClCompile Include="FrequencyTable.cpp" />
+    <ClCompile Include="HuffmanCodeConverter.cpp" />
     <ClCompile Include="HuffmanCoding.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
