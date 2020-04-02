@@ -125,13 +125,18 @@
   <ItemGroup>
     <ClInclude Include="BitInputStream.h" />
     <ClInclude Include="BitOutputStream.h" />
+    <ClInclude Include="CodeTree.h" />
     <ClInclude Include="Decoder.h" />
     <ClInclude Include="Encoder.h" />
+    <ClInclude Include="FrequencyTable.h" />
     <ClInclude Include="HuffmanCoding.h" />
+    <ClInclude Include="HuffmanDecoder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitInputStream.cpp" />
     <ClCompile Include="BitOutputStream.cpp" />
+    <ClCompile Include="CodeTree.cpp" />
+    <ClCompile Include="FrequencyTable.cpp" />
     <ClCompile Include="HuffmanCoding.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
