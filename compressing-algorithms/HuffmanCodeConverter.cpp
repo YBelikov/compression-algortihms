@@ -4,9 +4,6 @@
 void HuffmanCodeConverter::createCodes(const CodeTree& tree) {
 	auto root = tree.getRoot();
 	calculateCodes(root, 0);
-	for (auto& x : charactersAndCodes) {
-		std::cout << x.first << '|' << x.second << '\n';
-	}
 }
 
 void HuffmanCodeConverter::calculateCodes(std::shared_ptr<HuffmanTreeNode>& node, int bound) {
