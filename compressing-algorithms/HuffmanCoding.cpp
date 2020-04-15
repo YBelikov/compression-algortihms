@@ -7,8 +7,8 @@ void HuffmanCoding::writeEncodedText(std::istream& in, HuffmanCodeConverter& con
 	while (in) {
 		string lineOfText{};
 		std::getline(in, lineOfText);
+		lineOfText.append("\n");
 		for (auto& character : lineOfText) {
-			std::cout << converter.getCodeOfCharacter(character);
 			writeCodeToStream(converter.getCodeOfCharacter(character));
 		}
 	}

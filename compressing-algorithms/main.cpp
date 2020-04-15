@@ -13,7 +13,7 @@ using std::ifstream;
 
 int main() {
 
-	ifstream in("textToEncode.txt");
+	ifstream in("text.doc");
 	FrequencyTable table;
 	table.countFrequencesOfSymbolsInStream(in);
 	table.insertCharacterWithFrequency(static_cast<char>(256), 1);
@@ -21,15 +21,16 @@ int main() {
 	huffmanTree.buildCodeTree(table);
 	HuffmanCodeConverter converter;
 	converter.createCodes(huffmanTree);
-	ofstream out("encodedText.txt", std::ios::binary);
+	ofstream out("encodedText.doc", std::ios::binary);
 	HuffmanCoding coding(out);
 	in.close();
-	in.open("textToEncode.txt");
+	in.open("text.doc");
 	coding.writeEncodedText(in, converter);
 	in.close();
 	out.close();
-	in.open("encodedText.txt", std::ios::binary);
+	in.open("encodedText.doc", std::ios::binary);
 	HuffmanDecoder decoder(in);
+	//out.open("decodedMobydick.txt");
 	decoder.decodeText(huffmanTree, cout);
 	return 0;
 }
