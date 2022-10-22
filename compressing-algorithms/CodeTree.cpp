@@ -1,20 +1,25 @@
 #include "CodeTree.h"
 
-void CodeTree::buildCodeTree(FrequencyTable& table) {
+void CodeTree::buildCodeTree(FrequencyTable& table) 
+{
 	fillHeap(table);
 	constructTree();
 }
 
-void CodeTree::fillHeap(FrequencyTable& table) {
-	for (auto& pair : table) {
+void CodeTree::fillHeap(FrequencyTable& table) 
+{
+	for (auto& pair : table) 
+	{
 		huffmanMinHeap.push(std::move(make_shared<HuffmanTreeNode>(pair.first, pair.second)));
 	}
 }
 
-void CodeTree::constructTree() {
+void CodeTree::constructTree() 
+{
 	char symbolForSumOfFrequences = '$';
 
-	while (huffmanMinHeap.size() > 1) {
+	while (huffmanMinHeap.size() > 1) 
+	{
 		auto minimumFrequencePair = huffmanMinHeap.top();
 		huffmanMinHeap.pop();
 		auto secondMinimumFrequencePair = huffmanMinHeap.top();

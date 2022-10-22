@@ -18,7 +18,7 @@
     <ClInclude Include="Encoder.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="HuffmanCoding.h">
+    <ClInclude Include="HuffmanEncoder.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="BitOutputStream.h">

@@ -10,7 +10,8 @@ using std::vector;
 using std::greater;
 using std::make_shared;
 
-struct HuffmanTreeNode {
+struct HuffmanTreeNode 
+{
 	char symbol;
 	size_t frequency;
 	shared_ptr<HuffmanTreeNode> leftChild;

@@ -4,11 +4,16 @@
 #include <string>
 #include <istream>
 
-class HuffmanCoding {
+class HuffmanEncoder 
+{
+
 public:
-	HuffmanCoding(ostream& out) : outStream(out) {}
+	HuffmanEncoder(ostream& out) : outStream(out) {}
 	void writeEncodedText(std::istream& in, HuffmanCodeConverter&);
+	std::string encodeString(const std::string& inputString, HuffmanCodeConverter& converter);
+
 private:
-	BitOutputStream outStream;
 	void writeCodeToStream(const std::string&);
+
+	BitOutputStream outStream;
 };

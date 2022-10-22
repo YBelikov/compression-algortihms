@@ -5,7 +5,8 @@
 #include <string>
 
 
-class FrequencyTable {
+class FrequencyTable 
+{
 public:
 	auto begin() { return std::begin(symbolFrequencies); }
 	auto end() { return std::end(symbolFrequencies); }
@@ -16,7 +17,9 @@ public:
 	FrequencyTable() = default;
 	FrequencyTable(const FrequencyTable&) = default;
 	void countFrequencesOfSymbolsInStream(std::istream& in);
+	void countFrequencesOfSymbolsInString(const std::string_view inputString);
 	void insertCharacterWithFrequency(char, int);
+
 private:
 	std::map<char, int> symbolFrequencies;
 };

@@ -6,7 +6,8 @@ using std::ostream;
 using std::istream;
 
 template<typename Algorithm>
-class Encoder {
+class Encoder 
+{
 public:
 	Encoder(ostream& out, istream& in): encodingAlgorithm(out, in) {}
 	void encodeTextFile(const string& fileName);
@@ -14,8 +15,8 @@ public:
 	string encodedString() { return encodingAlgorithm.getEncodedString(); }
 	string decodedString() { return encodingAlgorithm.getDecodedString(); }
 	void writeDecodedText() { encodingAlgorithm.writeDecodedText(); }
-private:
 
+private:
 	Algorithm encodingAlgorithm;
 };
 
