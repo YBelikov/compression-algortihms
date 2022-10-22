@@ -21,11 +21,11 @@ void HuffmanDecoder::decodeText(const CodeTree& huffmanTree, std::ostream& out)
 					bit = inputStream.readWithoutEOF();
 				}
 			}
-			int symbolCode = static_cast<int>(node->symbol);
-			if (symbolCode == 0) 
-			{
-				return;
-			}
+			//int symbolCode = static_cast<int>(node->symbol);
+			//if (symbolCode == 0) 
+			//{
+			//	return;
+			//}
 			out << node->symbol;
 			node = huffmanTree.getRoot();
 		}
@@ -59,19 +59,19 @@ std::string HuffmanDecoder::decodeString(const CodeTree& huffmanTree, std::strin
 					++index;
 				}
 			}
-			int symbolCode = static_cast<int>(node->symbol);
+			//int symbolCode = static_cast<int>(node->symbol);
 			if (index >= encodedString.size()) 
 			{
-				decodedString.push_back(node->symbol);
+				decodedString += node->symbol;
 				return decodedString;
 			}
 			
-			if (symbolCode == 0)
+			/*if (symbolCode == 0)
 			{
 				return decodedString;
 			}
-
-			decodedString.push_back(node->symbol);
+			*/
+			decodedString += node->symbol;
 			node = huffmanTree.getRoot();
 		}
 	}

@@ -4,6 +4,7 @@
 #include <queue>
 #include "FrequencyTable.h"
 
+using std::string;
 using std::priority_queue;
 using std::shared_ptr;
 using std::vector;
@@ -12,7 +13,7 @@ using std::make_shared;
 
 struct HuffmanTreeNode 
 {
-	char symbol;
+	string symbol;
 	size_t frequency;
 	shared_ptr<HuffmanTreeNode> leftChild;
 	shared_ptr<HuffmanTreeNode> rightChild;
@@ -35,7 +36,7 @@ struct HuffmanTreeNode
 	HuffmanTreeNode() = default;
 	HuffmanTreeNode(HuffmanTreeNode&&) = default;
 	HuffmanTreeNode(const HuffmanTreeNode&) = default;
-	HuffmanTreeNode(char symbol_, size_t frequency_) : symbol{ symbol_ }, frequency{ frequency_ } {}
+	explicit HuffmanTreeNode(string symbol_, size_t frequency_) : symbol{ symbol_ }, frequency{ frequency_ } {}
 };
 
 struct NodeComparator {

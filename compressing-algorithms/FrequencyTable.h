@@ -18,10 +18,10 @@ public:
 	FrequencyTable(const FrequencyTable&) = default;
 	void countFrequencesOfSymbolsInStream(std::istream& in);
 	void countFrequencesOfSymbolsInString(const std::string_view inputString);
-	void insertCharacterWithFrequency(char, int);
+	void insertCharacterWithFrequency(const std::string&, int);
 
 private:
-	std::map<char, int> symbolFrequencies;
+	std::map<std::string, int> symbolFrequencies;
 };
 
 

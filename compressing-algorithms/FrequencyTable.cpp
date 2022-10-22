@@ -1,5 +1,7 @@
 #include "FrequencyTable.h"
 
+using std::string;
+
 void FrequencyTable::countFrequencesOfSymbolsInStream(std::istream& in) 
 {
 	while (in) 
@@ -9,7 +11,7 @@ void FrequencyTable::countFrequencesOfSymbolsInStream(std::istream& in)
 		lineOfText.append("\n");
 		for (auto& c : lineOfText) 
 		{
-			++symbolFrequencies[c];
+			++symbolFrequencies[string(1, c)];
 		}
 	}
 }
@@ -18,11 +20,11 @@ void FrequencyTable::countFrequencesOfSymbolsInString(const std::string_view inp
 {
 	for (auto& c : inputString)
 	{
-		++symbolFrequencies[c];
+		++symbolFrequencies[string(1, c)];
 	}
 }
 
-void FrequencyTable::insertCharacterWithFrequency(char character, int frequency) 
+void FrequencyTable::insertCharacterWithFrequency(const string& character, int frequency) 
 {
 	symbolFrequencies[character] = frequency;
 }

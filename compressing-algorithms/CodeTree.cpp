@@ -1,5 +1,7 @@
 #include "CodeTree.h"
 
+using std::string;
+
 void CodeTree::buildCodeTree(FrequencyTable& table) 
 {
 	fillHeap(table);
@@ -16,8 +18,6 @@ void CodeTree::fillHeap(FrequencyTable& table)
 
 void CodeTree::constructTree() 
 {
-	char symbolForSumOfFrequences = '$';
-
 	while (huffmanMinHeap.size() > 1) 
 	{
 		auto minimumFrequencePair = huffmanMinHeap.top();
@@ -27,7 +27,7 @@ void CodeTree::constructTree()
 		shared_ptr<HuffmanTreeNode> newNode = make_shared<HuffmanTreeNode>();
 		newNode->leftChild = minimumFrequencePair;
 		newNode->rightChild = secondMinimumFrequencePair;
-		newNode->symbol = symbolForSumOfFrequences;
+		newNode->symbol = minimumFrequencePair->symbol + secondMinimumFrequencePair->symbol;
 		newNode->frequency = minimumFrequencePair->frequency + secondMinimumFrequencePair->frequency;
 		huffmanMinHeap.push(newNode);
 

@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 		ifstream in(pathToTheFile);
 		FrequencyTable table;
 		table.countFrequencesOfSymbolsInStream(in);
-		table.insertCharacterWithFrequency(static_cast<char>(256), 1);
+		table.insertCharacterWithFrequency(string(1,static_cast<char>(256)), 1);
 		CodeTree huffmanTree;
 		huffmanTree.buildCodeTree(table);
 		HuffmanCodeConverter converter;

@@ -42,7 +42,7 @@ void HuffmanCodeConverter::calculateCodes(std::shared_ptr<HuffmanTreeNode>& node
 	}
 }
 
-std::string HuffmanCodeConverter::getCodeOfCharacter(char character)
+std::string HuffmanCodeConverter::getCodeOfCharacter(const string& character)
 {
 	return charactersAndCodes[character];
 }

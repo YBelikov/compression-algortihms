@@ -10,12 +10,15 @@ void HuffmanEncoder::writeEncodedText(std::istream& in, HuffmanCodeConverter& co
 		string lineOfText{};
 		std::getline(in, lineOfText);
 		lineOfText.append("\n");
-		for (auto& character : lineOfText) 
+		
+		for (auto& character : lineOfText)
 		{
-			writeCodeToStream(converter.getCodeOfCharacter(character));
+			std::string symbol(1, character);
+			writeCodeToStream(converter.getCodeOfCharacter(symbol));
 		}
 	}
-	writeCodeToStream(converter.getCodeOfCharacter(static_cast<char>(256)));
+	string symbol(1, static_cast<char>(256));
+	writeCodeToStream(converter.getCodeOfCharacter(symbol));
 	outStream.finish();
 }
 
@@ -39,7 +42,8 @@ std::string HuffmanEncoder::encodeString(const std::string& inputString, Huffman
 	std::string encodedString;
 	std::for_each(inputString.begin(), inputString.end(), [&](const auto& character) 
 		{
-			encodedString.append(converter.getCodeOfCharacter(character));
+			string symbol(1, character);
+			encodedString.append(converter.getCodeOfCharacter(symbol));
 		});
 	return encodedString;
 }
